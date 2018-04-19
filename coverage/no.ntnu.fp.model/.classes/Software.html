@@ -1,0 +1,158 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Software</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">no.ntnu.fp.model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Software (no.ntnu.fp.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Software</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (9/ 10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94,1%
+  </span>
+  <span class="absValue">
+    (32/ 34)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package no.ntnu.fp.model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.beans.PropertyChangeEvent;
+<i>4</i>&nbsp;import java.beans.PropertyChangeListener;
+<i>5</i>&nbsp;import java.beans.PropertyChangeSupport;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public class Software {
+<i>8</i>&nbsp;	//Software-objektets egenskaper/attributter
+<i>9</i>&nbsp;	private int swVersion;
+<i>10</i>&nbsp;	private int minorVersion;
+<i>11</i>&nbsp;	private String url;
+<i>12</i>&nbsp;	//Slutt egenskaper
+<i>13</i>&nbsp;	
+<i>14</i>&nbsp;	private PropertyChangeSupport propChangeSupp;
+<i>15</i>&nbsp;	
+<i>16</i>&nbsp;	public final static String VERSION_PROPERTY_NAME = &quot;version&quot;;
+<i>17</i>&nbsp;	public final static String minorVersion_PROPERTY_NAME = &quot;minorVersion&quot;;
+<i>18</i>&nbsp;	public final static String URL_PROPERTY_NAME = &quot;url&quot;;
+<i>19</i>&nbsp;	
+<b class="fc"><i>20</i>&nbsp;	public Software() {</b>
+<b class="fc"><i>21</i>&nbsp;		this.swVersion = 0;</b>
+<b class="fc"><i>22</i>&nbsp;		this.minorVersion = 0;</b>
+<b class="fc"><i>23</i>&nbsp;		this.url = &quot;&quot;;</b>
+<b class="fc"><i>24</i>&nbsp;		propChangeSupp = new PropertyChangeSupport(this);</b>
+<b class="fc"><i>25</i>&nbsp;	}</b>
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;	public Software(int swVersion, int minorVersion, String url) {</b>
+<b class="fc"><i>28</i>&nbsp;		this.swVersion = swVersion;</b>
+<b class="fc"><i>29</i>&nbsp;		this.minorVersion = minorVersion;</b>
+<b class="fc"><i>30</i>&nbsp;		this.url = url;</b>
+<b class="fc"><i>31</i>&nbsp;		propChangeSupp = new PropertyChangeSupport(this);</b>
+<b class="fc"><i>32</i>&nbsp;	}</b>
+<i>33</i>&nbsp;	
+<i>34</i>&nbsp;	public void addPropertyChangeListener(PropertyChangeListener listener) {
+<b class="fc"><i>35</i>&nbsp;		propChangeSupp.addPropertyChangeListener(listener);</b>
+<b class="fc"><i>36</i>&nbsp;	}</b>
+<i>37</i>&nbsp;	
+<i>38</i>&nbsp;	public void removePropertyChangeListener(PropertyChangeListener listener) {
+<b class="nc"><i>39</i>&nbsp;		propChangeSupp.removePropertyChangeListener(listener);</b>
+<b class="nc"><i>40</i>&nbsp;	}</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;	public int getSwVersion() {
+<b class="fc"><i>43</i>&nbsp;		return swVersion;</b>
+<i>44</i>&nbsp;	}
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;	public void setSwVersion(int swVersion) {
+<b class="fc"><i>47</i>&nbsp;		int oldswVersion = this.swVersion;</b>
+<b class="fc"><i>48</i>&nbsp;		this.swVersion = swVersion;</b>
+<b class="fc"><i>49</i>&nbsp;		PropertyChangeEvent event = new PropertyChangeEvent(this, VERSION_PROPERTY_NAME, oldswVersion, swVersion);</b>
+<b class="fc"><i>50</i>&nbsp;		propChangeSupp.firePropertyChange(event);</b>
+<b class="fc"><i>51</i>&nbsp;	}</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;	public int getMinorVersion() {
+<b class="fc"><i>54</i>&nbsp;		return minorVersion;</b>
+<i>55</i>&nbsp;	}
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;	public void setMinorVersion(int minorVersion) {
+<b class="fc"><i>58</i>&nbsp;		int oldminorVersion = this.minorVersion;</b>
+<b class="fc"><i>59</i>&nbsp;		this.minorVersion = minorVersion;</b>
+<b class="fc"><i>60</i>&nbsp;		PropertyChangeEvent event = new PropertyChangeEvent(this, minorVersion_PROPERTY_NAME, oldminorVersion, minorVersion);</b>
+<b class="fc"><i>61</i>&nbsp;		propChangeSupp.firePropertyChange(event);</b>
+<b class="fc"><i>62</i>&nbsp;	}</b>
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;	public String getUrl() {
+<b class="fc"><i>65</i>&nbsp;		return url;</b>
+<i>66</i>&nbsp;	}
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;	public void setUrl(String url) {
+<b class="fc"><i>69</i>&nbsp;		String oldUrl = this.url;</b>
+<b class="fc"><i>70</i>&nbsp;		this.url = url;</b>
+<b class="fc"><i>71</i>&nbsp;		PropertyChangeEvent event = new PropertyChangeEvent(this, URL_PROPERTY_NAME, oldUrl, url);</b>
+<b class="fc"><i>72</i>&nbsp;		propChangeSupp.firePropertyChange(event);</b>
+<b class="fc"><i>73</i>&nbsp;	}</b>
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-04-19 17:52</div>
+</div>
+</body>
+</html>

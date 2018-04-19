@@ -1,0 +1,248 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: FactoryProject</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">no.ntnu.fp.model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: FactoryProject (no.ntnu.fp.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FactoryProject</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (71/ 71)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package no.ntnu.fp.model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.beans.PropertyChangeEvent;
+<i>4</i>&nbsp;import java.beans.PropertyChangeListener;
+<i>5</i>&nbsp;import java.util.Iterator;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public class FactoryProject implements PropertyChangeListener{
+<i>9</i>&nbsp;	    //FactoryProject-objektets egenskaper/attributter
+<i>10</i>&nbsp;		java.util.ArrayList vehicleList;
+<i>11</i>&nbsp;		java.util.ArrayList softwareList;
+<i>12</i>&nbsp;		java.util.ArrayList&lt;SimpleEcu&gt; ecuList;
+<i>13</i>&nbsp;		//Slutt egenskaper
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;		private java.beans.PropertyChangeSupport propChangeSupp;
+<i>16</i>&nbsp;
+<b class="fc"><i>17</i>&nbsp;		public FactoryProject() {</b>
+<b class="fc"><i>18</i>&nbsp;			vehicleList = new java.util.ArrayList();</b>
+<b class="fc"><i>19</i>&nbsp;			softwareList = new java.util.ArrayList();</b>
+<b class="fc"><i>20</i>&nbsp;			ecuList = new java.util.ArrayList&lt;SimpleEcu&gt;();</b>
+<b class="fc"><i>21</i>&nbsp;			propChangeSupp = new java.beans.PropertyChangeSupport(this);</b>
+<b class="fc"><i>22</i>&nbsp;		}</b>
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;		public FactoryProject(java.util.ArrayList vehicleList, java.util.ArrayList softwareList, java.util.ArrayList&lt;SimpleEcu&gt; ecuList) {</b>
+<b class="fc"><i>25</i>&nbsp;			this.vehicleList = vehicleList;</b>
+<b class="fc"><i>26</i>&nbsp;			this.softwareList = softwareList;</b>
+<b class="fc"><i>27</i>&nbsp;			this.ecuList = ecuList;</b>
+<b class="fc"><i>28</i>&nbsp;			propChangeSupp = new java.beans.PropertyChangeSupport(this);</b>
+<b class="fc"><i>29</i>&nbsp;		}</b>
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;		public int getVehicleCount() {
+<b class="fc"><i>32</i>&nbsp;			return vehicleList.size();</b>
+<i>33</i>&nbsp;		}
+<i>34</i>&nbsp;		public int getSoftwareCount() {
+<b class="fc"><i>35</i>&nbsp;			return softwareList.size();</b>
+<i>36</i>&nbsp;		}
+<i>37</i>&nbsp;		public Vehicle getVehicle(int i) {
+<b class="fc"><i>38</i>&nbsp;			return (Vehicle)vehicleList.get(i);</b>
+<i>39</i>&nbsp;		}
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;		public Software getSoftware(int i) {
+<b class="fc"><i>42</i>&nbsp;			return (Software)softwareList.get(i);</b>
+<i>43</i>&nbsp;		}
+<i>44</i>&nbsp;		public int getEcuCount() {
+<b class="fc"><i>45</i>&nbsp;			return ecuList.size();</b>
+<i>46</i>&nbsp;		}
+<i>47</i>&nbsp;		public Software getLatestSoftware() {
+<b class="fc"><i>48</i>&nbsp;			return (Software)softwareList.get(softwareList.size()-1);</b>
+<i>49</i>&nbsp;		}
+<i>50</i>&nbsp;		public Vehicle getLatestVehicle() {
+<b class="fc"><i>51</i>&nbsp;			return (Vehicle)vehicleList.get(vehicleList.size()-1);</b>
+<i>52</i>&nbsp;		}
+<i>53</i>&nbsp;		public SimpleEcu getLatestEcu() {
+<b class="fc"><i>54</i>&nbsp;			return (SimpleEcu)ecuList.get(ecuList.size()-1);</b>
+<i>55</i>&nbsp;		}
+<i>56</i>&nbsp;		public int getSoftwareIndex(Software s) {
+<b class="fc"><i>57</i>&nbsp;			return this.softwareList.indexOf(s);</b>
+<i>58</i>&nbsp;		}
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;		public SimpleEcu getEcu(int i) {
+<b class="fc"><i>61</i>&nbsp;			return ecuList.get(i);</b>
+<i>62</i>&nbsp;		}
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;		public int getVehicleIndex(String srcVal) {
+<b class="fc"><i>65</i>&nbsp;			srcVal = srcVal.toLowerCase();</b>
+<b class="fc"><i>66</i>&nbsp;			for (int i = 0; i &lt; vehicleList.size(); i++) {</b>
+<b class="fc"><i>67</i>&nbsp;				Vehicle p = (Vehicle)vehicleList.get(i);</b>
+<b class="fc"><i>68</i>&nbsp;				if (p.getVehicleID().toLowerCase().contains(srcVal)) {</b>
+<b class="fc"><i>69</i>&nbsp;					return i;</b>
+<i>70</i>&nbsp;				}
+<i>71</i>&nbsp;			}
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;			return -1;</b>
+<i>74</i>&nbsp;		}
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;		public int indexOf(Object obj) {
+<b class="fc"><i>77</i>&nbsp;			return vehicleList.indexOf(obj);</b>
+<i>78</i>&nbsp;		}
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;		public Iterator iterator() {
+<b class="fc"><i>81</i>&nbsp;			return vehicleList.iterator();</b>
+<i>82</i>&nbsp;		}
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;		public void addVehicle(Vehicle vehicle) {
+<b class="fc"><i>85</i>&nbsp;			vehicleList.add(vehicle);</b>
+<b class="fc"><i>86</i>&nbsp;			vehicle.addPropertyChangeListener(this);</b>
+<b class="fc"><i>87</i>&nbsp;			propChangeSupp.firePropertyChange(&quot;vehicle&quot;, null, vehicle);</b>
+<b class="fc"><i>88</i>&nbsp;		}</b>
+<i>89</i>&nbsp;		public void addSoftware(Software soft) {
+<b class="fc"><i>90</i>&nbsp;			softwareList.add(soft);</b>
+<b class="fc"><i>91</i>&nbsp;			soft.addPropertyChangeListener(this);</b>
+<b class="fc"><i>92</i>&nbsp;			propChangeSupp.firePropertyChange(&quot;software&quot;, null, soft);</b>
+<b class="fc"><i>93</i>&nbsp;		}</b>
+<i>94</i>&nbsp;		public void addEcu(SimpleEcu ecu) {
+<b class="fc"><i>95</i>&nbsp;			ecuList.add(ecu);</b>
+<i>96</i>&nbsp;			//ecu.addPropertyChangeListener(this);
+<i>97</i>&nbsp;			//propChangeSupp.firePropertyChange(&quot;ecu&quot;, null, ecu);
+<b class="fc"><i>98</i>&nbsp;		}</b>
+<i>99</i>&nbsp;		public void removeVehicle(Vehicle vehicle) {
+<b class="fc"><i>100</i>&nbsp;			int i = vehicleList.indexOf(vehicle);</b>
+<b class="fc"><i>101</i>&nbsp;			Integer index = new Integer(i);</b>
+<b class="fc"><i>102</i>&nbsp;			vehicleList.remove(vehicle);</b>
+<b class="fc"><i>103</i>&nbsp;			vehicle.removePropertyChangeListener(this);</b>
+<b class="fc"><i>104</i>&nbsp;			propChangeSupp.firePropertyChange(&quot;vehicle&quot;, vehicle, index);</b>
+<b class="fc"><i>105</i>&nbsp;		}</b>
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;		/**
+<i>108</i>&nbsp;		 * Add a {@link java.beans.PropertyChangeListener} to the listener list.
+<i>109</i>&nbsp;		 *
+<i>110</i>&nbsp;		 * @param listener The {@link java.beans.PropertyChangeListener} to be added.
+<i>111</i>&nbsp;		 */
+<i>112</i>&nbsp;		public void addPropertyChangeListener(PropertyChangeListener listener) {
+<b class="fc"><i>113</i>&nbsp;			propChangeSupp.addPropertyChangeListener(listener);</b>
+<b class="fc"><i>114</i>&nbsp;		}</b>
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;		/**
+<i>117</i>&nbsp;		 * Remove a {@link java.beans.PropertyChangeListener} from the listener list.
+<i>118</i>&nbsp;		 *
+<i>119</i>&nbsp;		 * @param listener The {@link java.beans.PropertyChangeListener} to be removed.
+<i>120</i>&nbsp;		 */
+<i>121</i>&nbsp;		public void removePropertyChangeListener(PropertyChangeListener listener) {
+<b class="fc"><i>122</i>&nbsp;			propChangeSupp.removePropertyChangeListener(listener);</b>
+<b class="fc"><i>123</i>&nbsp;		}</b>
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;		public void propertyChange(PropertyChangeEvent event) {
+<b class="fc"><i>126</i>&nbsp;			propChangeSupp.firePropertyChange(event);</b>
+<b class="fc"><i>127</i>&nbsp;		}</b>
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;		/**
+<i>130</i>&nbsp;		 * {@inheritDoc}
+<i>131</i>&nbsp;		 */
+<i>132</i>&nbsp;		public boolean equals(Object o) {
+<b class="fc"><i>133</i>&nbsp;			if (super.equals(o))</b>
+<b class="fc"><i>134</i>&nbsp;				return true;</b>
+<i>135</i>&nbsp;
+<b class="fc"><i>136</i>&nbsp;			if (o.getClass() != this.getClass())</b>
+<b class="fc"><i>137</i>&nbsp;				return false;</b>
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;			FactoryProject aFactoryProject = (FactoryProject)o;</b>
+<i>140</i>&nbsp;
+<b class="fc"><i>141</i>&nbsp;			if (aFactoryProject.getVehicleCount() != getVehicleCount())</b>
+<b class="fc"><i>142</i>&nbsp;				return false;</b>
+<i>143</i>&nbsp;
+<b class="fc"><i>144</i>&nbsp;			Iterator it = this.iterator();</b>
+<b class="fc"><i>145</i>&nbsp;			while (it.hasNext()) {</b>
+<b class="fc"><i>146</i>&nbsp;				Vehicle aVehicle = (Vehicle)it.next();</b>
+<b class="fc"><i>147</i>&nbsp;				if (aFactoryProject.indexOf(aVehicle) &lt; 0)</b>
+<b class="fc"><i>148</i>&nbsp;					return false;</b>
+<b class="fc"><i>149</i>&nbsp;			}</b>
+<i>150</i>&nbsp;
+<b class="fc"><i>151</i>&nbsp;			return true;</b>
+<i>152</i>&nbsp;		}
+<i>153</i>&nbsp;
+<i>154</i>&nbsp;		/**
+<i>155</i>&nbsp;		 * {@inheritDoc}
+<i>156</i>&nbsp;		 */
+<i>157</i>&nbsp;		public String toString() {
+<b class="fc"><i>158</i>&nbsp;			String s = &quot;project:\n&quot;;</b>
+<b class="fc"><i>159</i>&nbsp;			Iterator it = this.iterator();</b>
+<b class="fc"><i>160</i>&nbsp;			while (it.hasNext()) {</b>
+<b class="fc"><i>161</i>&nbsp;				s += it.next().toString() + &quot;\n&quot;;</b>
+<i>162</i>&nbsp;			}
+<b class="fc"><i>163</i>&nbsp;			return s;</b>
+<i>164</i>&nbsp;		}
+<i>165</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-04-19 17:52</div>
+</div>
+</body>
+</html>
