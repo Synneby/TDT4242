@@ -50,18 +50,18 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    87,5%
   </span>
   <span class="absValue">
-    (24/ 24)
+    (21/ 24)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    91,5%
   </span>
   <span class="absValue">
-    (71/ 71)
+    (65/ 71)
   </span>
 </td>
 </tr>
@@ -184,8 +184,8 @@
 <i>110</i>&nbsp;		 * @param listener The {@link java.beans.PropertyChangeListener} to be added.
 <i>111</i>&nbsp;		 */
 <i>112</i>&nbsp;		public void addPropertyChangeListener(PropertyChangeListener listener) {
-<b class="fc"><i>113</i>&nbsp;			propChangeSupp.addPropertyChangeListener(listener);</b>
-<b class="fc"><i>114</i>&nbsp;		}</b>
+<b class="nc"><i>113</i>&nbsp;			propChangeSupp.addPropertyChangeListener(listener);</b>
+<b class="nc"><i>114</i>&nbsp;		}</b>
 <i>115</i>&nbsp;
 <i>116</i>&nbsp;		/**
 <i>117</i>&nbsp;		 * Remove a {@link java.beans.PropertyChangeListener} from the listener list.
@@ -193,12 +193,12 @@
 <i>119</i>&nbsp;		 * @param listener The {@link java.beans.PropertyChangeListener} to be removed.
 <i>120</i>&nbsp;		 */
 <i>121</i>&nbsp;		public void removePropertyChangeListener(PropertyChangeListener listener) {
-<b class="fc"><i>122</i>&nbsp;			propChangeSupp.removePropertyChangeListener(listener);</b>
-<b class="fc"><i>123</i>&nbsp;		}</b>
+<b class="nc"><i>122</i>&nbsp;			propChangeSupp.removePropertyChangeListener(listener);</b>
+<b class="nc"><i>123</i>&nbsp;		}</b>
 <i>124</i>&nbsp;
 <i>125</i>&nbsp;		public void propertyChange(PropertyChangeEvent event) {
-<b class="fc"><i>126</i>&nbsp;			propChangeSupp.firePropertyChange(event);</b>
-<b class="fc"><i>127</i>&nbsp;		}</b>
+<b class="nc"><i>126</i>&nbsp;			propChangeSupp.firePropertyChange(event);</b>
+<b class="nc"><i>127</i>&nbsp;		}</b>
 <i>128</i>&nbsp;
 <i>129</i>&nbsp;		/**
 <i>130</i>&nbsp;		 * {@inheritDoc}
@@ -242,7 +242,7 @@
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2018-04-19 17:52</div>
+    <div style="float:right;">generated on 2018-04-20 11:37</div>
 </div>
 </body>
 </html>

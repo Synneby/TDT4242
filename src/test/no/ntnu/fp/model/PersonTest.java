@@ -81,27 +81,24 @@ public class PersonTest {
 
     @Test
     public void equalsNameException() {
-        Person p1 = new Person(1, "Synne", "email", "Trondheim", "Trondheim", "hola");
-        Person p2 = new Person(2, "Håkon", "email", "Trondheim", "Trondheim", "hola");
-        //p.setStreet("Trondheim");
+        Person p1 = new Person(1, "Synne", "email", "Trondheim", "Trondheim", "vehicle1");
+        Person p2 = new Person(2, "Håkon", "email", "Trondheim", "Trondheim", "vehicle1");
 
         assertEquals(false, p1.equals(p2));
     }
 
     @Test
     public void equalsMailException() {
-        Person p1 = new Person(1, "Synne", "email", "Trondheim", "Trondheim", "hola");
-        Person p2 = new Person(2, "Synne", "notemail", "Trondheim", "Trondheim", "hola");
-        //p.setStreet("Trondheim");
+        Person p1 = new Person(1, "Synne", "email", "Trondheim", "Trondheim", "vehicle1");
+        Person p2 = new Person(2, "Synne", "notemail", "Trondheim", "Trondheim", "vehicle1");
 
         assertEquals(false, p1.equals(p2));
     }
 
     @Test
     public void equalsStreetException() {
-        Person p1 = new Person(1, "Synne", "email", "Trondheim", "Trondheim", "hola");
-        Person p2 = new Person(2, "Synne", "email", "nottrondheim", "Trondheim", "hola");
-        //p.setStreet("Trondheim");
+        Person p1 = new Person(1, "Synne", "email", "Trondheim", "Trondheim", "vehicle1");
+        Person p2 = new Person(2, "Synne", "email", "nottrondheim", "Trondheim", "vehicle1");
 
         assertEquals(false, p1.equals(p2));
     }

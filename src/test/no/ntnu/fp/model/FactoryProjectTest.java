@@ -60,6 +60,7 @@ public class FactoryProjectTest {
         ArrayList arr1 = new ArrayList();
         ArrayList<SimpleEcu> arr2 = new ArrayList<SimpleEcu>();
         arr2.add(s);
+
         FactoryProject f = new FactoryProject(arr, arr1, arr2);
         assertEquals(1, f.getEcuCount());
     }
@@ -93,12 +94,9 @@ public class FactoryProjectTest {
         FactoryProject f = new FactoryProject();
         SimpleEcu e = new SimpleEcu();
         SimpleEcu e1 = new SimpleEcu();
-
         f.addEcu(e);
         f.addEcu(e1);
-
         assertEquals(e1, f.getLatestEcu());
-
     }
 
     @Test

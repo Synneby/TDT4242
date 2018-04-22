@@ -98,10 +98,15 @@ public class ProjectTest {
     public void contains() {
         Project p = new Project();
         Person person = new Person(1);
-
-        assertFalse(p.contains(person));
         p.addPerson(person);
         assertTrue(p.contains(person));
+    }
+
+    @Test
+    public void dontcontains(){
+        Project p = new Project();
+        Person person = new Person(1);
+        assertFalse(p.contains(person));
     }
 
     @Test
